@@ -12,17 +12,17 @@
 
 Antes de começar, vamos entender alguns conceitos importantes sobre o Kafka:
 
-* **Kafka cluster**: Um sistema distribuído de clusters kafka
+* **Kafka cluster**: Um sistema distribuído de clusters Kafka
 
 * **Kafka broker**: O message broker responsável por mediar os dados entre os produtores e os consumidores. Eles são responsáveis por juntar as operações de I/O e persistir isso no cluster.
 
-* **ZooKeeper**: Gerencia todo controle do cluster. Ele age como um repositório de configuração, mantendo os metadados do cluster e também implementando os mecanismo do cluster. 
+* **ZooKeeper**: Gerencia todo controle do cluster. Ele age como um repositório de configuração, mantendo os metadados do cluster e também implementando os mecanismos do cluster. 
 
 * **Kafka producer**: Aplicação cliente responsável por adicionar registros nos tópicos do Kafka.
 
 * **Kafka consumer**: Aplicação que ler os tópicos. 
 
-O exemplo exibe um projeto que utiliza microsserviços e o apache kafka. O apache kafka funciona como um intermediador para transmitir mensagens publicadas no tópico '_image_' pelo microsserviço 'upload' para os microsserviços 'rotate' e 'grayscale'. Ao serem notificados, esses microsserviços realizam operações em arquivos de imagem que estão salvos num volume compartilhado. 
+O exemplo exibe um projeto que utiliza microsserviços e o Apache Kafka. O Apache Kafka funciona como um intermediador para transmitir mensagens publicadas no tópico '_image_' pelo microsserviço 'upload' para os microsserviços 'rotate' e 'grayscale'. Ao serem notificados, esses microsserviços realizam operações em arquivos de imagem que estão salvos num volume compartilhado. 
 
 Para executá-lo, basta baixar a pasta do projeto (pub-sub) e executar o comando "docker-compose up" na pasta principal. 
 
@@ -31,7 +31,7 @@ sudo docker-compose up --build
 ```
 
 ![image](https://user-images.githubusercontent.com/276077/162104971-34cde74b-c4f7-4da5-a2da-d18176780838.png)
-O comando cria, inicia e anexa containers em um serviço. O parâmetro --build força o construção da imagem antes da criação do serviço.
+O comando cria, inicia e anexa containers a um serviço. O parâmetro --build força o construção da imagem antes da criação do serviço.
 
 Mais informações do docker-compose no [link](https://docs.docker.com/compose/reference/down/)
 
@@ -41,7 +41,7 @@ Para saber se todos os serviços estão rodando, pode-se utilizar o comando:
 sudo docker ps --format '{{.Names}}'
 ``` 
 
-Se tudo estiver ocorrido da forma esperada, o resultado será algo assim: 
+Se tudo ocorrer da forma esperada, o resultado será algo assim: 
 ![image](https://user-images.githubusercontent.com/276077/116919942-6817ed80-ac28-11eb-8fc5-b9ee7b335b2c.png)
 
 Ainda é possível analisar cada um dos logs gerados pelas aplicações no container usando o comando "docker logs". 
@@ -79,7 +79,7 @@ Baseando-se no código indicado em [https://gist.github.com/rodrigoclira/9e1be73
 
 ## Atividade novo(s) tópico(s)
 
-Adicione um novo ator (microsserviço) no projeto que será responsável por notificar através do telegram ou e-mail que a operação do 'rotate' ou 'grayscale' foi finalizada. Para isso será necessário alterar o projeto adicionando uma nova etapa de pubicação num novo tópico (por exemplo **/notificacao**) por parte do microsserviço 'rotate' e 'grayscale'. O novo microsserviço '**notificador**' será responsável por checar (pooling) o tópico e fazer o envio de mensagem no telegram ou e-mail para um contato defindo (pode ser fixo ou variável**) quando a operação estiver finalizada. 
+Adicione um novo ator (microsserviço) no projeto que será responsável por notificar através do Telegram ou e-mail que a operação de 'rotate' ou 'grayscale' foi finalizada. Para isso, será necessário alterar o projeto adicionando uma nova etapa de publicação num novo tópico (por exemplo, **/notificacao**) por parte dos microsserviços 'rotate' e 'grayscale'. O novo microsserviço '**notificador**' será responsável por checar (pooling) o tópico e fazer o envio de mensagem no Telegram ou por e-mail para um contato definido (pode ser fixo ou variável**) quando a operação estiver finalizada. 
 
 ** Se fizer variável, coloque um input de e-mail/telegram_id no HTML do microsserviço 'upload'. 
 
@@ -92,7 +92,7 @@ Por exemplo:
 O arquivo perfil.jpg foi rotacionado.
 ```
 ```
-O arquivo perfil.jpg foi transformado em preto e branco.
+O arquivo perfil.jpg foi convertido para preto e branco.
 ```
 
 Sugestões de como usar Telegram/Email: 
