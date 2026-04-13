@@ -70,9 +70,9 @@ Por fim, o comando 'docker-compose down' derruba todos os serviços.
 
 ```
 sudo docker-compose down
+```
 
 # Atividades
-```
 ## 1. Atividade novo consumidor
 
 ![image](https://github.com/user-attachments/assets/00f21461-7345-45e4-9d08-38763657465a)
