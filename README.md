@@ -51,8 +51,10 @@ sudo docker logs -f
 ```
 
 
+## Acessando o KafDrop em ```localhost:9000```
+> [!IMPORTANT]
+> Confirme se o Kafdrop está ativo no `docker-compose.yaml` antes de acessá-lo. Além disso, se você estiver rodando na AWS, a porta do serviço precisa estar disponível.
 
-Acessando o KafDrop em ```localhost:9000```
 
 > “Kafdrop is a web UI for viewing Kafka topics and browsing consumer groups. The tool displays information such as brokers, topics, partitions, consumers, and lets you view messages.” — [Kafdrop on GitHub](https://github.com/obsidiandynamics/kafdrop)
 
@@ -64,28 +66,28 @@ Visualizando os tópicos
 
 
 
-
 Por fim, o comando 'docker-compose down' derruba todos os serviços. 
 
 ```
 sudo docker-compose down
+
+# Atividades
 ```
-## Atividade novo consumidor
+## 1. Atividade novo consumidor
 
 ![image](https://github.com/user-attachments/assets/00f21461-7345-45e4-9d08-38763657465a)
 
 Baseando-se no código indicado em [https://gist.github.com/rodrigoclira/9e1be73222f16248a59b1389905b1d6c](https://gist.github.com/rodrigoclira/9e1be73222f16248a59b1389905b1d6c), crie um novo consumidor que irá escrever o nome do arquivo na imagem. Ao final, do upload, os três microsserviços serão notificados para que realizem suas respectivas operações.
 
+## 2. Atividade novo(s) tópico(s)
 
-## Atividade novo(s) tópico(s)
+Adicione um novo ator (microsserviço) no projeto que será responsável por notificar através do Telegram ou e-mail que a operação de 'rotate' ou 'grayscale' foi finalizada. Para isso, será necessário alterar o projeto adicionando uma nova etapa de publicação num novo tópico (por exemplo, **/notificacao**) por parte dos microsserviços 'rotate' e 'grayscale'. O novo microsserviço '**notificador**' será responsável por checar (pooling) o tópico e fazer o envio de mensagem no Telegram ou por e-mail para um contato definido (pode ser fixo ou variável*) quando a operação estiver finalizada. 
 
-Adicione um novo ator (microsserviço) no projeto que será responsável por notificar através do Telegram ou e-mail que a operação de 'rotate' ou 'grayscale' foi finalizada. Para isso, será necessário alterar o projeto adicionando uma nova etapa de publicação num novo tópico (por exemplo, **/notificacao**) por parte dos microsserviços 'rotate' e 'grayscale'. O novo microsserviço '**notificador**' será responsável por checar (pooling) o tópico e fazer o envio de mensagem no Telegram ou por e-mail para um contato definido (pode ser fixo ou variável**) quando a operação estiver finalizada. 
-
-** Se fizer variável, coloque um input de e-mail/telegram_id no HTML do microsserviço 'upload'. 
+* Se fizer variável, coloque um input de e-mail/telegram_id no HTML do microsserviço 'upload'. 
 
 As mensagens enviadas devem conter:
-  1. o nome do arquivo original
-  2. a indicação da operação realizada
+  1. O nome do arquivo original
+  2. A indicação da operação realizada
 
 Por exemplo: 
 ```
@@ -112,11 +114,13 @@ Ao terminar os experimentos, lembre-se de executar ```docker-compose down```
 
 - Exemplo de programa em Flask com upload de imagem < https://github.com/roytuts/flask/tree/master/python-flask-upload-display-image >
 
+
+# Material Complementar
+
 ## Projetos Relacionados
 - [Pub Sub Store](https://github.com/rodrigoclira/pub-sub-store)
 
-## Material Complementar
-
+## Leitura sugerida
 [Arquitetura Publish/Subscribe](https://engsoftmoderna.info/cap7.html#arquiteturas-publishsubscribe)
 
 [Entendo o Kafka](https://vepo.medium.com/entendendo-o-kafka-bf64169e421f)
