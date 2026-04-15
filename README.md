@@ -44,10 +44,10 @@ sudo docker ps --format '{{.Names}}'
 Se tudo ocorrer da forma esperada, o resultado será algo assim: 
 ![image](https://user-images.githubusercontent.com/276077/116919942-6817ed80-ac28-11eb-8fc5-b9ee7b335b2c.png)
 
-Ainda é possível analisar cada um dos logs gerados pelas aplicações no container usando o comando "docker logs". 
+Ainda é possível analisar cada um dos logs gerados pelas aplicações no container usando o comando "docker-compose logs". 
 
 ```
-sudo docker logs -f
+sudo docker-compose logs -f
 ```
 
 
