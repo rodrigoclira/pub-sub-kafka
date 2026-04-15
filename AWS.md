@@ -10,7 +10,13 @@
 wget https://github.com/rodrigoclira/pub-sub-kafka/archive/refs/heads/main.zip
 ```
 
-2. Modifique a porta no qual a aplicação vai rodar. No docker-compose, mude a seguinte parte: 
+3. Descompacte o arquivo zip
+
+```
+unzip main.zip
+```
+
+2. Modifique a porta na qual a aplicação (upload) vai rodar. No `docker-compose`, mude a seguinte parte: 
 
 **antigo**
 ```
@@ -39,8 +45,11 @@ wget https://github.com/rodrigoclira/pub-sub-kafka/archive/refs/heads/main.zip
 sudo docker compose up --build
 ```
 
-3. Acesse a página da aplicação através do botão de `Preview` do Cloud9
+3. Acesse a página da aplicação através do botão de `Preview` do Cloud9.
 
+4. Espere o fim da inicialização (quando os logs pararem de atualizar de forma frenética) e visualize a comunicação assíncrona acontecendo.
+
+5. No final, o arquivo que foi enviado para upload e suas versões rotacionadas e em preto e branco, estarão disponíveis na pasta `./appdata/`
 
 
 ## Executar na AWS (EC2)
